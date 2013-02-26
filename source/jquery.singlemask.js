@@ -1,5 +1,13 @@
 (function ($) {
-  var pasteEventName = $.browser.msie ? 'paste' : 'input';
+  function getPasteEvent() {
+    var el = document.createElement('input'),
+
+    name = 'onpaste';
+    el.setAttribute(name, '');
+    return (typeof el[name] === 'function') ? 'paste' : 'input';
+  }
+
+  var pasteEventName = getPasteEvent();
 
   $.fn.singlemask = function (mask) {
     $(this).keydown(function (event) {
