@@ -1,3 +1,10 @@
+/*
+  Character mask for jQuery.
+  https://github.com/sobrinho/jquery.singlemask
+
+  Copyright (c) 2011-2013 Gabriel Sobrinho (http://gabrielsobrinho.com/).
+  Released under the MIT license
+*/
 (function ($) {
   function getPasteEvent() {
     var el = document.createElement('input'),
