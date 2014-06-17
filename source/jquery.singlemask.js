@@ -24,6 +24,13 @@
         return;
       }
 
+      // Numpad key numbers starts on 96 (0) and ends on 105 (9)
+      // Somehow the String.fromCharCode doesn't knows that
+      // Subtracting 48 we have the 'standard' number code
+      if (key >= 96 && key <= 105) {
+        key = key - 48;
+      }
+
       return String.fromCharCode(key).match(mask);
     }).bind(pasteEventName, function () {
       this.value = $.grep(this.value, function (character) {
