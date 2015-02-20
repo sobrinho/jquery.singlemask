@@ -31,7 +31,9 @@
         key = key - 48;
       }
 
-      return String.fromCharCode(key).match(mask);
+      if (!String.fromCharCode(key).match(mask)) {
+        event.preventDefault();
+      };
     }).bind(pasteEventName, function () {
       this.value = $.grep(this.value, function (character) {
         return character.match(mask);
